@@ -22,7 +22,7 @@
 #include "xcam_log.h"
 #include "rk_aiq_types_priv.h"
 
-#if HAS_LIBDRM
+#if defined(HAS_LIBDRM)
 #include "xcore/drm_buffer.h"
 #endif
 
@@ -185,7 +185,7 @@ SmartBufferPriv::buf_get_fd (XCamVideoBuffer *data)
 void *
 SmartBufferPriv::buf_get_bo (XCamVideoBufferRK *data)
 {
-#if HAS_LIBDRM
+#if defined(HAS_LIBDRM)
     SmartBufferPriv* buf = (SmartBufferPriv*)data;
     XCAM_ASSERT(buf->_buf_ptr.ptr());
 

@@ -393,7 +393,7 @@ ThumbnailsBufferManager::ThumbnailsBufferManager(const std::shared_ptr<Thumbnail
 XCamReturn ThumbnailsBufferManager::InitializeBufferPools(
     const rkaiq_stream_type_t& type, const XCamVideoBufferInfo& fullImageInfo) {
     std::unique_lock<std::mutex> lock(mutex_);
-#if HAS_LIBDRM
+#if defined(HAS_LIBDRM)
     if (!DrmDevice::Available()) {
         LOGE_ANALYZER("drm device is not available!");
         return XCAM_RETURN_ERROR_FAILED;
